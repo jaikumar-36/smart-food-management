@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "College project for meal demand and food waste management",
   "main": "backend/server.js",
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "start": "node backend/server.js",
     "dev": "nodemon backend/server.js",
