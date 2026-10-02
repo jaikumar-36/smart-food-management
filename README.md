@@ -2,16 +2,15 @@
 
 Express serves the frontend and API from one Node.js service. MongoDB is used for persistent application data.
 
-## Deploy to Render
+## Deploy to Github
 
-1. Push this project to a Git repository and create a new **Blueprint** on Render using the repository. Render reads `render.yaml` and creates the web service.
+1. Push this project to a Git repository.
 2. Set `MONGODB_URI` in the Render service environment to the Atlas URI shown in `.env.example`, replacing `<db_password>` with the database user's actual password. If the password contains reserved URL characters, percent-encode them. Keep the password out of Git and allow Render to reach the database in Atlas network access settings.
 3. Render generates `JWT_SECRET` from the Blueprint. Keep it private and do not commit production secrets.
 4. Deploy. The service runs `npm ci`, then `npm start`; Render checks `/api/health`.
 5. Open the Render service URL. The Express service serves both the frontend and `/api` routes, so the browser does not need a separate API URL or CORS configuration.
 6. To load the demo records and demo login, run `npm run seed` once against the empty hosted database from a trusted environment configured with that database's `MONGODB_URI`. Do not run it after real data has been added.
 
-`N8N_WEBHOOK_URL` is optional. Add it to the Render environment only if donation events should trigger an n8n workflow.
 
 ## Run locally
 
